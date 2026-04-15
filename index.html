@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>BE SOMAA - Register</title>
+    <style>
+        :root {
+            --primary: #6b66f6;
+            --bg: #f8f9fa;
+            --text-dark: #333;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #d1e2da;
+            /* Header pattern color */
+            margin: 0;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+            min-height: 100vh;
+        }
+
+        .form-card {
+            background: white;
+            padding: 40px;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 485px;
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #2d4a43;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #fdfdfd;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .phone-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .phone-group select {
+            width: 35%;
+        }
+
+        button {
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        /* تنسيق الفوتر الأساسي */
+        .site-footer {
+            background-color: #2d4a43;
+            /* نفس الدرجة الغامقة الموجودة في الصورة */
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        .footer-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        /* تنسيق الأيقونات */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            /* المسافة بين الأيقونات */
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            /* شكل دائري */
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+            transition: all 0.3s ease-in-out;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* تأثيرات الـ Hover (عند تمرير الماوس) */
+        .icon:hover {
+            transform: translateY(-5px);
+            /* حركة بسيطة للأعلى */
+            color: white;
+        }
+
+        /* ألوان الأيقونات عند التمرير حسب هوية كل منصة */
+        .facebook:hover {
+            background-color: #1877F2;
+            border-color: #1877F2;
+        }
+
+        .instagram:hover {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            border-color: transparent;
+        }
+
+        .tiktok:hover {
+            background-color: #000000;
+            border-color: #fe2c55;
+            box-shadow: 2px 2px #fe2c55, -2px -2px #25f4ee;
+        }
+
+        .snapchat:hover {
+            background-color: #FFFC00;
+            color: #000;
+            border-color: #FFFC00;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            font-size: 13px;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <div class="form-card">
+            <h2>Register</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" name="firstName" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" name="lastName" placeholder="Last Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Your Email</label>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <div class="phone-group">
+                        <select name="countryCode">
+                            <option value="+20">Egypt (+20)</option>
+                        </select>
+                        <input type="text" name="mobile" placeholder="Mobile" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <select name="gender">
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" name="age">
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" name="city">
+                </div>
+                <div class="form-group">
+                    <label>Link</label>
+                    <input type="text" name="link" placeholder="Instagram Link">
+                </div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea name="notes" placeholder="Notes" rows="2"></textarea>
+                </div>
+                <button type="submit" id="submitBtn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+                <img src="sceond.jpeg" alt="BE EXPO Logo" style="width: 90px; height: 90px; margin-bottom: 20px; border-radius: 50%;">
+            <p>تابعنا على منصات التواصل الاجتماعي</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/1CPFRmrocY/?mibextid=wwXIfr" class="icon facebook"
+                    title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/s.i.b.a_beauty_academy?igsh=MWswMGh1a2c0em1zbw=="
+                    class="icon instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@sooma_sh91?_r=1&_d=efaecgib3c3d8j&sec_uid=MS4wLjABAAAAEaH869Zpz4EBXl06jLneUBpq0P-Mvx-rkNz538zWpMaYHYf0KATPorZ7nPRgv7HH&share_author_id=267669422272839680&sharer_language=en&source=h5_m&u_code=c4l71di25fchl&item_author_type=1&utm_source=copy&tt_from=copy&enable_checksum=1&utm_medium=ios&share_link_id=2FDB95AD-F14A-4022-8BAC-B61AB6C68614&user_id=267669422272839680&sec_user_id=MS4wLjABAAAAEaH869Zpz4EBXl06jLneUBpq0P-Mvx-rkNz538zWpMaYHYf0KATPorZ7nPRgv7HH&social_share_type=4&ug_btm=b8727,b0&utm_campaign=client_share&share_app_id=1233"
+                    class="icon tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://snapchat.com/t/NfBm4wjX" class="icon snapchat" title="Snapchat"><i
+                        class="fab fa-snapchat-ghost"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2026 BE SOMAA. جميع الحقوق محفوظة
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyBem_ON3arffrRiDXMiNPDHUNrJBiOq9ynos0jvCRoSOp1dU3wnUIKhA9P3XfS6nuXmQ/exec';
+        const form = document.getElementById('registrationForm');
+        const btn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+
+            // 1. إظهار حالة "جاري الإرسال" بشكل جذاب
+            Swal.fire({
+                title: 'جاري تسجيل بياناتك...',
+                html: 'يرجى الانتظار لحظة واحدة ⏳',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
+            });
+
+            btn.disabled = true;
+
+            // لا تقم بمسح هذا السطر! (mode: 'no-cors' ضروري للعمل مع Google Apps Script)
+            fetch(scriptURL, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
+                .then(response => {
+                    // 2. تنبيه النجاح
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'تم التسجيل بنجاح!',
+                        text: 'شكراً لانضمامك إلينا في BE EXPO',
+                        confirmButtonColor: '#6366f1',
+                        timer: 3000 // يختفي تلقائياً بعد 3 ثواني
+                    });
+
+                    btn.disabled = false;
+                    form.reset();
+                })
+                .catch(error => {
+                    // 3. تنبيه الخطأ
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'عذراً.. حدث خطأ',
+                        text: 'تأكد من اتصالك بالإنترنت وحاول مرة أخرى',
+                        confirmButtonColor: '#d33'
+                    });
+                    btn.disabled = false;
+                });
+        });
+    </script>
+</body>
+
+</html>
